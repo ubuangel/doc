@@ -1,0 +1,265 @@
+\documentclass[12pt]{article}
+\usepackage{caption}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage[spanish]{babel}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{xcolor}
+\usepackage{hyperref}%compilar 2 veces
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{subfig}%figuras una alado de otraa
+\usepackage{float}
+\definecolor{commentsColor}{rgb}{0.13, 0.55, 0.13}
+\definecolor{keywordsColor}{rgb}{0.000000, 0.000000, 0.635294}
+\definecolor{stringColor}{rgb}{0.558215, 0.000000, 0.135316}
+\definecolor{numerolineas}{rgb}{0.41,0.41,0.41}
+
+\usepackage{verbatim}%coemntario begin{} end
+
+\usepackage{fancyhdr}%activar para usar encabezados esttilos funcy
+
+
+%\usepackage[backend=bibtex]{biblatex}
+%\addbibresource{referencias/referencias.bib}
+
+%\usepackage[top=1.5cm,bottom=1.0cm,left=1.25cm,right=1.25cm]{geometry}%para todos las paginas
+
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  %large
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{commentsColor}\textit,    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=tb,	                   	   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{keywordsColor}\bfseries,       % keyword style
+  language=Python,                 % the language of the code (can be overrided per snippet)
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{black}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{stringColor}, % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  columns=fixed                    % Using fixed column width (for e.g. nice alignment)
+}
+
+
+
+
+%activar 
+\fancyhf{}
+\lhead[\leftmark]{\textit{Angel Andres Bejar Merma}}
+\rhead[Nombre Autor]{\rightmark}
+\lfoot[\thepage]{}
+\rfoot[]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+%activar 
+%\pagestyle{fancy}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+
+\lstset{literate=
+  {á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {Á}{{\'A}}1
+  {É}{{\'E}}1
+  {Í}{{\'I}}1
+  {Ó}{{\'O}}1
+  {Ú}{{\'U}}1
+  {ñ}{{\~n}}1
+  {ü}{{\"u}}1
+  {Ü}{{\"U}}1
+}
+
+
+
+
+\begin{document}
+%\newgeometry{bottom=2.5cm,top=2.6cm,left=2.5cm,right=2.5cm}
+%\restoregeometry
+%\includepdf{9}
+
+%
+%para el report 
+\begin{titlepage}
+
+	\centering
+	\includegraphics[width=0.15\textwidth]{imagenes/unsa.png}\par\vspace{1cm}
+	{\scshape\LARGE Universidad Nacional de San Agustin \par}
+	\vspace{1cm}
+	{\scshape\Large Proyecto \par}
+	\vspace{1.5cm}
+	{\huge\bfseries Titulo\par}
+	\vspace{2cm}
+	{\Large\itshape Bejar Merma Angel Andres\par}
+	\vfill
+	Docente \par
+	Dr.  \textsc{Nombre de lprofesor}
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+%para el report
+
+
+
+%\title{Practica numero 6}
+%\author{\textit{Angel Andres Bejar Merma}}
+%\date{30 de julio del 2020}
+%\maketitle
+
+%\begin{abstract}
+
+
+
+%\end{abstract}
+
+%\vspace{5mm} %espacio vertical usar en imagen
+
+
+
+\section{Parte 1}
+
+Desarrollar un compilador descendente recursivo para evaluar expresiones booleanas,
+dada la siguiente gramática.\ref{fig:1}
+
+
+\lstinputlisting[]{tt.f95}
+
+\begin{figure}[H]%estricto
+\centering
+\includegraphics[width=10cm]{imagenes/.png}
+\caption{Gramatica}
+\label{fig:1}
+\end{figure}
+
+
+
+
+\begin{figure}[H]%primero aqui sino arriba sino abajo
+\centering
+\includegraphics[width=15cm]{imagenes/.png}
+\caption{}
+\end{figure}
+\newpage
+
+
+\section{Desarrollo}
+\newpage
+
+
+
+\section{Codigo}
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include<ctype.h>
+#include<string.h>
+
+	if (strcmp(lexema, "false")==0)
+			return token=false;
+	if (strcmp(lexema, "true")==0)
+			return token=true;
+
+		}
+
+
+		}
+
+
+\end{lstlisting}
+
+%\end{samepage}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{imagenes/.png}
+
+\caption{}
+\end{figure}
+Se modifico el codigo 
+
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm]{imagenes/.png}
+\caption{}
+\end{figure}
+
+
+\newpage
+\section{Anexo}
+
+
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=15cm]{}
+
+\caption{}
+\end{figure}
+
+%\includegraphics[width=15cm]{índice2.png} 
+
+
+
+
+\newpage
+\section{Conclusion}
+%Este algoritmo conocido como el de construcción de
+%subconjuntos convierte un AFN en un AFD haciendo uso de
+
+
+
+
+\vspace{20 mm}
+	%\section{Conclusion}
+
+%	Esto esposible debido a que C++ es  
+
+
+
+
+
+
+
+%\printbibliography
+
+\end{document}
+
